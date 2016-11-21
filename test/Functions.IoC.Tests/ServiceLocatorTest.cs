@@ -38,5 +38,28 @@ namespace Functions.IoC.Tests
             users.Count.Should().Be(entities.Count);
             users.First().FirstName.Should().Be(entities.First().FirstName);
         }
+
+        /// <summary>
+        /// Tests whether the property should return result or not.
+        /// </summary>
+        [Fact]
+        public async void Given_Dependencies_Instance_ShouldReturn_Result_Asynchronously()
+        {
+            var locator = new ServiceLocator();
+            var instance = locator.Instance;
+
+            var service = instance.GetInstance<IUserService>();
+
+            var entities = new List<User>
+                           {
+                               new User() { UserId = Guid.NewGuid(), FirstName = "Jane", LastName = "Doe" },
+                               new User() { UserId = Guid.NewGuid(), FirstName = "Joe", LastName = "Bloggs" }
+                           };
+
+            var users = await service.GetUsersAsync(entities).ConfigureAwait(false);
+
+            users.Count.Should().Be(entities.Count);
+            users.First().FirstName.Should().Be(entities.First().FirstName);
+        }
     }
 }

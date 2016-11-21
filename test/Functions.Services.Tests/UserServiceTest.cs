@@ -44,5 +44,23 @@ namespace Functions.Services.Tests
             users.Count.Should().Be(entities.Count);
             users.First().FirstName.Should().Be(entities.First().FirstName);
         }
+
+        /// <summary>
+        /// Tests whether the method should return result or not.
+        /// </summary>
+        [Fact]
+        public async void GivenUser_GetUsersAsync_ShouldReturn_Result()
+        {
+            var entities = new List<User>
+                           {
+                               new User() { UserId = Guid.NewGuid(), FirstName = "Jane", LastName = "Doe" },
+                               new User() { UserId = Guid.NewGuid(), FirstName = "Joe", LastName = "Bloggs" }
+                           };
+
+            var users = await this._service.GetUsersAsync(entities).ConfigureAwait(false);
+
+            users.Count.Should().Be(entities.Count);
+            users.First().FirstName.Should().Be(entities.First().FirstName);
+        }
     }
 }

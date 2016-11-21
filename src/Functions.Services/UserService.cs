@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 using Functions.EntityModels;
 using Functions.Mappers;
@@ -50,6 +51,24 @@ namespace Functions.Services
                 var users = mapper.Map<List<UserModel>>(results);
                 return users;
             }
+        }
+
+        /// <summary>
+        /// Gets the list of users.
+        /// </summary>
+        /// <param name="results">Result from data store.</param>
+        /// <returns>Returns the list of users.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="results"/> is <see langword="null" />.</exception>
+        public async Task<List<UserModel>> GetUsersAsync(IList<User> results)
+        {
+            if (results == null || !results.Any())
+            {
+                throw new ArgumentNullException(nameof(results));
+            }
+
+            var users = await Task.Factory.StartNew(() => this.GetUsers(results)).ConfigureAwait(false);
+
+            return users;
         }
 
         /// <summary>
