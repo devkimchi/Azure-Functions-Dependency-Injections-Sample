@@ -21,6 +21,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functions.Services.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Functions.IoC.Tests", "test\Functions.IoC.Tests\Functions.IoC.Tests.csproj", "{57B985A1-26E6-4C84-B19E-0901EEF32AFC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions.Scripts", "Functions.Scripts", "{BF91F77F-D9DF-4EF8-A121-C727A820BB2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{4FD0FD41-DF78-4522-8781-DAF87D96EDB1}"
+	ProjectSection(SolutionItems) = preProject
+		src\Functions.Scripts\Shared\ServiceLocator.csx = src\Functions.Scripts\Shared\ServiceLocator.csx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceLocatorTrigger", "ServiceLocatorTrigger", "{3711D104-1377-4731-93C9-B7AA27FE6835}"
+	ProjectSection(SolutionItems) = preProject
+		src\Functions.Scripts\ServiceLocatorTrigger\function.json = src\Functions.Scripts\ServiceLocatorTrigger\function.json
+		src\Functions.Scripts\ServiceLocatorTrigger\run.csx = src\Functions.Scripts\ServiceLocatorTrigger\run.csx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceLocatorTriggerAsync", "ServiceLocatorTriggerAsync", "{3B5EAA1D-8099-4509-A03E-AF6B4EFE7B8D}"
+	ProjectSection(SolutionItems) = preProject
+		src\Functions.Scripts\ServiceLocatorTriggerAsync\function.json = src\Functions.Scripts\ServiceLocatorTriggerAsync\function.json
+		src\Functions.Scripts\ServiceLocatorTriggerAsync\run.csx = src\Functions.Scripts\ServiceLocatorTriggerAsync\run.csx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,5 +86,9 @@ Global
 		{699F53A2-6128-4B67-84DB-C9D163593342} = {7EB9953F-BF75-4563-A32E-897512D4CECB}
 		{4FB1B380-4DF7-45E1-B4AD-C9103F9C8829} = {DAFF1F0E-6F45-4FD2-AE98-D000E87A9CBA}
 		{57B985A1-26E6-4C84-B19E-0901EEF32AFC} = {DAFF1F0E-6F45-4FD2-AE98-D000E87A9CBA}
+		{BF91F77F-D9DF-4EF8-A121-C727A820BB2A} = {7EB9953F-BF75-4563-A32E-897512D4CECB}
+		{4FD0FD41-DF78-4522-8781-DAF87D96EDB1} = {BF91F77F-D9DF-4EF8-A121-C727A820BB2A}
+		{3711D104-1377-4731-93C9-B7AA27FE6835} = {BF91F77F-D9DF-4EF8-A121-C727A820BB2A}
+		{3B5EAA1D-8099-4509-A03E-AF6B4EFE7B8D} = {BF91F77F-D9DF-4EF8-A121-C727A820BB2A}
 	EndGlobalSection
 EndGlobal
